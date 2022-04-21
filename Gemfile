@@ -77,3 +77,7 @@ gem 'devise-i18n'
 
 gem 'rake'  
 gem 'webpacker', '~> 3.5'
+
+group :production do
+  gem 'unicorn', '5.4.1'
+end

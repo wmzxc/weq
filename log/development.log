@@ -54583,3 +54583,94 @@ Processing by Devise::SessionsController#new as HTML
 Completed 200 OK in 26ms (Views: 13.1ms | ActiveRecord: 3.7ms | Allocations: 25828)
 
 
+Started GET "/" for 127.0.0.1 at 2022-04-17 03:51:24 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+Completed 401 Unauthorized in 9ms (ActiveRecord: 0.0ms | Allocations: 5608)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2022-04-17 03:51:24 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 879)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.6ms | Allocations: 3881)
+  Rendered layout layouts/application.html.erb (Duration: 13.4ms | Allocations: 9984)
+Completed 200 OK in 34ms (Views: 17.4ms | ActiveRecord: 7.3ms | Allocations: 25834)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2022-04-17 03:51:34 +0900
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"username"=>"user000", "fullname"=>"", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"ログイン"}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["username", "user000"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 305ms (ActiveRecord: 2.8ms | Allocations: 6016)
+
+
+Started GET "/" for 127.0.0.1 at 2022-04-17 03:51:34 +0900
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/users/1
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms | Allocations: 1364)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2022-04-17 03:51:34 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = $1[0m  [["role", "student"]]
+  ↳ app/views/users/show.html.erb:6
+  [1m[36mPost Load (1.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1 ORDER BY created_at desc[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:21
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:22
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:22
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:22
+  Rendered users/show.html.erb within layouts/application (Duration: 14.6ms | Allocations: 11309)
+  Rendered layout layouts/application.html.erb (Duration: 19.8ms | Allocations: 16666)
+Completed 200 OK in 28ms (Views: 15.8ms | ActiveRecord: 7.1ms | Allocations: 21898)
+
+
+Started GET "/users/104" for 127.0.0.1 at 2022-04-17 03:51:41 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"104"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1 ORDER BY created_at desc[0m  [["user_id", 104]]
+  ↳ app/views/users/show.html.erb:21
+  Rendered users/show.html.erb within layouts/application (Duration: 5.2ms | Allocations: 822)
+  Rendered layout layouts/application.html.erb (Duration: 22.1ms | Allocations: 6281)
+Completed 200 OK in 34ms (Views: 22.5ms | ActiveRecord: 1.6ms | Allocations: 8336)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2022-04-17 03:51:46 +0900
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 15ms (ActiveRecord: 0.5ms | Allocations: 2330)
+
+
+Started GET "/" for 127.0.0.1 at 2022-04-17 03:51:46 +0900
+Processing by HomeController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 271)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2022-04-17 03:51:46 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 165)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1259)
+  Rendered layout layouts/application.html.erb (Duration: 12.9ms | Allocations: 6874)
+Completed 200 OK in 15ms (Views: 13.4ms | ActiveRecord: 0.0ms | Allocations: 7515)
+
+
