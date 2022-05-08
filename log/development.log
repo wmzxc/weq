@@ -55854,3 +55854,94 @@ Processing by Devise::SessionsController#new as HTML
 Completed 200 OK in 14ms (Views: 12.1ms | ActiveRecord: 0.0ms | Allocations: 10736)
 
 
+Started GET "/" for 127.0.0.1 at 2022-05-09 04:02:37 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+Completed 401 Unauthorized in 11ms (ActiveRecord: 0.0ms | Allocations: 6427)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2022-05-09 04:02:38 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 875)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 8.0ms | Allocations: 4546)
+  Rendered layout layouts/application.html.erb (Duration: 16.0ms | Allocations: 10647)
+Completed 200 OK in 52ms (Views: 32.9ms | ActiveRecord: 7.0ms | Allocations: 27723)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2022-05-09 04:03:18 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.7ms | Allocations: 873)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 28.0ms | Allocations: 27262)
+  Rendered layout layouts/application.html.erb (Duration: 46.5ms | Allocations: 33375)
+Completed 200 OK in 92ms (Views: 56.1ms | ActiveRecord: 6.7ms | Allocations: 51603)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2022-05-09 04:03:19 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 165)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1256)
+  Rendered layout layouts/application.html.erb (Duration: 19.2ms | Allocations: 6864)
+Completed 200 OK in 24ms (Views: 20.4ms | ActiveRecord: 0.0ms | Allocations: 7572)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-09 05:25:53 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+Completed 401 Unauthorized in 10ms (ActiveRecord: 0.0ms | Allocations: 6056)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2022-05-09 05:25:53 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 893)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 6.6ms | Allocations: 4854)
+  Rendered layout layouts/application.html.erb (Duration: 15.9ms | Allocations: 11069)
+Completed 200 OK in 41ms (Views: 21.0ms | ActiveRecord: 6.5ms | Allocations: 27887)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2022-05-09 05:26:02 +0900
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"username"=>"user000", "fullname"=>"", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"ログイン"}
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["username", "user000"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 306ms (ActiveRecord: 3.4ms | Allocations: 7449)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-09 05:26:02 +0900
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/users/1
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms | Allocations: 1444)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2022-05-09 05:26:03 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = $1[0m  [["role", "student"]]
+  ↳ app/views/users/show.html.erb:6
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1 ORDER BY created_at desc[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:21
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:22
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:22
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:22
+  Rendered users/show.html.erb within layouts/application (Duration: 13.8ms | Allocations: 13173)
+  Rendered layout layouts/application.html.erb (Duration: 19.2ms | Allocations: 18656)
+Completed 200 OK in 28ms (Views: 16.9ms | ActiveRecord: 5.1ms | Allocations: 24292)
+
+
